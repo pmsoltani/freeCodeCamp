@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="responsiveWeb2.css" />
+    <link 
+        rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 
+        crossorigin="anonymous"
+    >
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,700i" rel="stylesheet">
+    <!-- https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-survey-form -->
+</head>
+
+<body>
+    <h1 id="title">Application Form</h1>
+    <div class="container">
+        <p id="description">Build your future with us!</p>
+        <form action="POST" id="survey-form">
+            <div id="register">
+                <ul>
+                    <li>
+                        <label for="name" id="name-label">Full name: </label>
+                        <div class="element">
+                            <span class="icon left"></span>
+                            <input type="text" name="name" id="name" placeholder="John Smith" required>
+                            <span class="icon right"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="age" id="number-label">Age: </label>
+                        <div class="element">
+                            <span class="icon left"></span>
+                            <input type="number" name="age" id="age" placeholder="26" required>
+                            <span class="icon right"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="email" id="email-label">Email: </label>
+                        <div class="element">
+                            <span class="icon left"></span>
+                            <input type="email" name="email" id="email" placeholder="john@appleseed.com" required>
+                            <span class="icon right"></span>
+                        </div>
+                    </li>
+                    <li>
+                        <label for="pass" id="pass-label">Password: </label>
+                        <div class="element">
+                            <span class="icon left"></span>
+                            <input type="password" name="password" id="password" placeholder="" required>
+                            <button class="inside" id="togglePass">
+                                <span class="icon right"><i class="far fa-eye-slash"></i></span>
+                                <!-- <span class="icon right"><i class="fas fa-times-circle"></i></span> -->
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <select name="" id="dropdown">
+                <option value="opt1">Economics (B.Sc.)</option>
+                <option value="opt2">Financial Management (M.Sc.)</option>
+                <option value="opt3">Environmental Policymaking (Ph.D.)</option>
+            </select>
+
+            <div>
+                <label for="rad1">Self Funded</label>
+                <input type="radio" name="grouped" id="rad1">
+                <label for="rad2">Governmental Fund</label>
+                <input type="radio" name="grouped" id="rad2">
+                <label for="rad3">Bank Loans</label>
+                <input type="radio" name="grouped" id="rad3">
+            </div>
+
+            <div>
+                <label for="chk1">Meals</label>
+                <input type="checkbox" name="chk1" id="chk1" value="chk1">                
+                <label for="chk2">Dormitory</label>
+                <input type="checkbox" name="chk1" id="chk2" value="chk2">                
+                <label for="chk3">Internet Access</label>
+                <input type="checkbox" name="chk1" id="chk3" value="chk3">                
+                <label for="chk4">Books</label>
+                <input type="checkbox" name="chk1" id="chk4" value="chk4">
+            </div>
+            <div>
+                <textarea id="comments" name="comments" placeholder="Additional Comments"></textarea>
+            </div>
+
+            <div>
+                <button type="button" id="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+    <script type="text/javascript" src="responsiveWeb2.js"></script>
+</body>
+
+</html>
