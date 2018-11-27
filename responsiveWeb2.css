@@ -6,6 +6,9 @@ body {
     background-color: lightgray;
     font-family: Roboto;
 }
+h1, .container p {
+    text-align: center;
+}
 .container { 
     background-color: whitesmoke;
     width: 50%;
@@ -102,6 +105,19 @@ body {
     visibility: visible !important;
     opacity: 1 !important;
     transition: all 0.30s ease-in-out;
+}
+
+#submit {
+    display: flex;
+    justify-content: center;
+}
+#submit input[type="submit"] {
+    flex: .15;
+    background-color: #268BFE;
+    height: var(--elem-height);
+    border-radius: var(--elem-radius);
+    font-size: 1em;
+    color: white;
 }
 
 /* .element:before {
