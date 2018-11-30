@@ -30,7 +30,7 @@ h1, .container p {
     height: var(--elem-height);
     line-height: var(--elem-height);
     font-size: 1em;
-    flex: 1;
+    flex: 1 !important;
 }
 .element {
     border: 1px solid lightgray;
@@ -67,6 +67,9 @@ h1, .container p {
 .element input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.element input[type="number"]{
+    width: 11em;
 }
 .element .icon {
     flex: 1;
@@ -107,7 +110,7 @@ span.message-box {
     font-size: 0.75em;
     line-height: 1em;
     height: 1em;
-    /* line-height: var(--elem-height); */
+    margin-top: 0.1em;
 }
 
 #submit {
@@ -121,6 +124,11 @@ span.message-box {
     border-radius: var(--elem-radius);
     font-size: 1em;
     color: white;
+}
+#submit input[type="submit"]:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+    outline: none;
 }
 
 .error {
