@@ -14,23 +14,24 @@ const forms = document.getElementsByTagName('form');
 const validClass = '<i class="fas fa-check-circle"></i>';
 const invalidClass = '<i class="fas fa-times-circle"></i>';
 
-// adding check & cross marks inside inputs for better validation visibility
-function validation (element, check) {
-    let spanIconLeft = element.parentElement.getElementsByTagName('span')[0];
-    if (element.value != '') {
-        if (element.value == check) {
-            spanIconLeft.innerHTML = validClass;
-            spanIconLeft.classList.remove('invalid');
-            spanIconLeft.classList.add('valid');
-        } else {
-            spanIconLeft.innerHTML = invalidClass;
-            spanIconLeft.classList.remove('valid');
-            spanIconLeft.classList.add('invalid');
-        }
+// form validation
+function validation (field, error) {
+    let spanIconRight = field.parentElement.querySelector('span.icon-right');
+    let spanMessageBox = field.parentElement.parentElement.querySelector('span.message-box');
+    // let spanIconRight = field.nextElementSibling;
+    if (!error) {
+        spanIconRight.innerHTML = validClass;
+        spanIconRight.classList.remove('invalid');
+        spanIconRight.classList.add('valid');
+        spanMessageBox.textContent = '';
+        spanMessageBox.classList.remove('invalid')
     } else {
-        spanIconLeft.innerHTML = '';
-        spanIconLeft.classList.remove('invalid');
-        spanIconLeft.classList.remove('valid');
+        console.log(error);
+        spanIconRight.innerHTML = invalidClass;
+        spanIconRight.classList.remove('valid');
+        spanIconRight.classList.add('invalid');
+        spanMessageBox.textContent = error;
+        spanMessageBox.classList.add('invalid')
     }
 }
 
@@ -93,8 +94,11 @@ for (let i = 0; i < forms.length; i++) {
 
 document.addEventListener('blur', function (event) {
     // validation (event.target, 'J S');
-    let error = event.target.validity;
-    console.log(error);
+    let error = hasError(event.target);
+    validation (event.target, error);
+    // if (error) {
+    //     event.target.classList.add('error');
+    // }
 }, true);
 
 // fullName.addEventListener('blur', () => {

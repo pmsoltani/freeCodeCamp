@@ -18,9 +18,11 @@ h1, .container p {
 }
 .container ul {
     list-style: none;
+    padding: 0;
 }
 .container ul li {
     display: flex;
+    flex-wrap: wrap;
     margin: 10px auto;
     width: 70%;
 }
@@ -85,26 +87,27 @@ h1, .container p {
     color: #747574;
 }
 
-
-/* .element .validation {
-    outline: none;
-    line-height: var(--elem-height);
-    position: absolute;
-    padding-left: 8em;
-} */
-
 .valid {
     color: rgb(54, 190, 95, 1);
     visibility: visible !important;
     opacity: 1 !important;
     transition: all 0.30s ease-in-out;
 }
-
 .invalid {
     color: rgb(236, 66, 60, 1);
     visibility: visible !important;
     opacity: 1 !important;
     transition: all 0.30s ease-in-out;
+}
+
+span.message-box {
+    flex: 50%;
+    text-align: right;
+    padding-left: 1em;
+    font-size: 0.75em;
+    line-height: 1em;
+    height: 1em;
+    /* line-height: var(--elem-height); */
 }
 
 #submit {
@@ -120,15 +123,11 @@ h1, .container p {
     color: white;
 }
 
-/* .element:before {
-    display: none;
-    position: absolute;
-    font-family: 'Font Awesome\ 5 Free';
-    font-weight: 900;
-    font-size: 1em;
-    color: rgb(54, 190, 95);
-    content: "\f058";
-    height: var(--elem-height);
-    line-height: var(--elem-height);
-    left: 8.5em;
-} */
+.error {
+    border-color: red;
+  }
+  
+  .error-message {
+    color: red;
+    font-style: italic;
+  }
