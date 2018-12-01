@@ -1,6 +1,10 @@
 :root {
     --elem-height: 40px;
     --elem-radius: 5em;
+    --color1: #f4f4f4;
+    --color2: #3197EE;
+    --color3: #b4b4b4;
+    --row-width: 70%;
 }
 body {
     background-color: lightgray;
@@ -24,7 +28,7 @@ h1, .container p {
     display: flex;
     flex-wrap: wrap;
     margin: 10px auto;
-    width: 70%;
+    width: var(--row-width);
 }
 .container ul li label {
     height: var(--elem-height);
@@ -33,7 +37,7 @@ h1, .container p {
     flex: 1 !important;
 }
 .element {
-    border: 1px solid lightgray;
+    border: 1px solid #999;
     border-radius: var(--elem-radius);
     height: var(--elem-height);
     line-height: var(--elem-height);
@@ -53,7 +57,7 @@ h1, .container p {
     flex: 10;
     box-sizing: border-box;
     height: var(--elem-height);
-    border: 0;/* border: 1px solid lightgray; */
+    border: 0;/* border: 1px solid #999; */
     font-size: 1em;
     outline: none;
 }
@@ -131,11 +135,49 @@ span.message-box {
     outline: none;
 }
 
-.error {
-    border-color: red;
+.radios {
+    display: flex;
+    width: var(--row-width);
+    margin: 10px auto;
+}
+.group-label {
+    flex: 1;
+    line-height: var(--elem-height);
+}
+.radios div {
+    display: flex;
+}
+.radio {
+    display: inline-flex;
+    flex: 1;
+}
+.radio label {
+    line-height: var(--elem-height);
+}
+.radio input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    content: '';
+    border-radius: 50%;
+    border: 1px solid #b4b4b4;
+    width: var(--elem-height);
+    height: var(--elem-height);
+    vertical-align: middle;
+    transition: all 500ms ease;
   }
-  
-  .error-message {
-    color: red;
-    font-style: italic;
-  }
+.radio input[type="radio"]:checked{
+    background-color: #3197ee;
+    box-shadow: inset 0 0 0 5px #f4f4f4, 0 0 5px #3197ee;
+}
+.radio input[type="radio"]:focus{
+    /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
+    border-color: rgba(81, 203, 238, 1);
+    outline: none;
+    /* border-color: #3197ee; */
+}
+.radio input[type="radio"]:disabled{
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+}
