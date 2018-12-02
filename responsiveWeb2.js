@@ -16,7 +16,7 @@ const invalidClass = '<i class="fas fa-times-circle"></i>';
 const patterns = {
     name: {
         pattern: /^([^0-9]*)$/,
-        message: 'Your name cannot have numbers.'
+        message: 'Numbers in name!'
     },
     email: {
         pattern: /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i,
@@ -24,7 +24,7 @@ const patterns = {
     },
     password: {
         pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,}$/,
-        message: 'Min 6 characters, 1 upper, 1 lower, 1 number'
+        message: 'Min length 6. 1 upper, 1 lower, 1 number'
     }
 };
 
@@ -57,11 +57,11 @@ let hasError = function (field) {
     }
     // If too short
     if (validity.tooShort) {
-        return `Min ${field.getAttribute('minLength')} characters.`;
+        return `Min ${field.getAttribute('minLength')} characters`;
     }
     // If too long
     if (validity.tooLong) {
-        return `Max ${field.getAttribute('maxLength')} characters.`;
+        return `Max ${field.getAttribute('maxLength')} characters`;
     }
     // If number input isn't a number
     if (validity.badInput) return 'Invalid Number';
@@ -69,14 +69,14 @@ let hasError = function (field) {
     if (validity.stepMismatch) return 'Invalid Value';
     // If a number field is over the max
     if (validity.rangeOverflow) {
-        return `Max is ${field.getAttribute('max')}.`;
+        return `Max is ${field.getAttribute('max')}`;
     }
     // If a number field is below the min
     if (validity.rangeUnderflow) {
-        return `Min is ${field.getAttribute('min')}.`;
+        return `Min is ${field.getAttribute('min')}`;
     }
     // If pattern doesn't match
-    if (validity.patternMismatch) return 'Invalid Format.';
+    if (validity.patternMismatch) return 'Invalid Format';
     // If all else fails, return a generic catchall error
     return 'Bad value for ${field.name}';
 };

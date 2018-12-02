@@ -10,7 +10,8 @@ body {
     background-color: lightgray;
     font-family: Roboto;
 }
-h1, .container p {
+h1,
+.container p {
     text-align: center;
 }
 .container { 
@@ -43,7 +44,8 @@ h1, .container p {
     line-height: var(--elem-height);
     flex: 3;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
+    align-content: flex-start;
     position:relative;
     background-color: white;
     transition: all 0.30s ease-in-out;
@@ -53,16 +55,37 @@ h1, .container p {
     border: 1px solid rgba(81, 203, 238, 1);
     outline: none;
 }
+.element .icon {
+    width: 10%;
+    flex: 100%;
+    text-align: center;
+    font-size: 1em;
+}
+.element .icon.icon-left {
+    order: 1;
+}
+.element #togglePass{
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    font-size: 1em;
+    color: #747574;
+    padding: 0;
+}
+.element .icon.icon-right {
+    visibility: hidden;
+    opacity: 0;
+    order: 4;
+}
 .element input {
-    margin: 0;
-    flex: 10;
+    width: 80%;
     box-sizing: border-box;
-    /* height: var(--elem-height); */
-    height: 75%;
-    border: 0;/* border: 1px solid #999; */
+    flex: 75%;
+    border: 0;
     font-size: 1em;
     outline: none;
-    padding-top: 4%;
+    padding-top: .7em;
+    order: 2;
 }
 .element input:focus + #togglePass .icon{
     color: #0f99cf;
@@ -73,36 +96,15 @@ h1, .container p {
     -webkit-appearance: none;
     margin: 0;
 }
-.element input[type="number"]{
-    /* width: 11em; */
-    /* flex-grow: 2; */
+span.message-box {
+    text-align: right;
+    width: 80%;
+    font-size: 0.75em;
+    line-height: 90%;
+    flex: 25%;
+    order: 3;
 }
-.element .icon {
-    flex: 1;
-    text-align: center;
-    font-size: 1em;
-}
-.element .icon.icon-right {
-    visibility: hidden;
-    opacity: 0;
-    line-height: 75%;
-    padding-top: 5.5%;
-}
-.element .icon.icon-left {
-    line-height: 75%;
-    padding-top: 5.5%;
-}
-.element #togglePass{
-    background-color: transparent;
-    border: 0;
-    outline: none;
-    font-size: 1em;
-    color: #747574;
-    padding: 0;
-}
-#togglePass{
-    
-}
+
 .valid {
     color: rgb(54, 190, 95, 1);
     visibility: visible !important;
@@ -115,17 +117,6 @@ h1, .container p {
     opacity: 1 !important;
     transition: all 0.30s ease-in-out;
 }
-
-span.message-box {
-    flex: 50%;
-    align-self: auto;
-    text-align: right;
-    padding-right: 8.333333%;
-    font-size: 0.75em;
-    line-height: 10px;
-    height: 12.5px;
-}
-
 #submit {
     display: flex;
     justify-content: center;
