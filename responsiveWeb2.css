@@ -1,5 +1,5 @@
 :root {
-    --elem-height: 40px;
+    --elem-height: 50px;
     --elem-radius: 5em;
     --color1: #f4f4f4;
     --color2: #3197EE;
@@ -27,7 +27,7 @@ h1, .container p {
 .container ul li {
     display: flex;
     flex-wrap: wrap;
-    margin: 10px auto;
+    margin: 20px auto;
     width: var(--row-width);
 }
 .container ul li label {
@@ -42,6 +42,7 @@ h1, .container p {
     height: var(--elem-height);
     line-height: var(--elem-height);
     display: flex;
+    flex-wrap: wrap;
     flex: 3;
     position:relative;
     background-color: white;
@@ -73,7 +74,8 @@ h1, .container p {
     margin: 0;
 }
 .element input[type="number"]{
-    width: 11em;
+    /* width: 11em; */
+    /* flex-grow: 2; */
 }
 .element .icon {
     flex: 1;
@@ -109,12 +111,14 @@ h1, .container p {
 
 span.message-box {
     flex: 50%;
+    flex-grow: 1;
     text-align: right;
-    padding-left: 1em;
+    padding: 0 2em;
     font-size: 0.75em;
     line-height: 1em;
     height: 1em;
     margin-top: 0.1em;
+    float: left;
 }
 
 #submit {
