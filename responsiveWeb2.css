@@ -41,9 +41,9 @@ h1, .container p {
     border-radius: var(--elem-radius);
     height: var(--elem-height);
     line-height: var(--elem-height);
+    flex: 3;
     display: flex;
     flex-wrap: wrap;
-    flex: 3;
     position:relative;
     background-color: white;
     transition: all 0.30s ease-in-out;
@@ -57,14 +57,14 @@ h1, .container p {
     margin: 0;
     flex: 10;
     box-sizing: border-box;
-    height: var(--elem-height);
+    /* height: var(--elem-height); */
+    height: 75%;
     border: 0;/* border: 1px solid #999; */
     font-size: 1em;
     outline: none;
+    padding-top: 4%;
 }
 .element input:focus + #togglePass .icon{
-    /* visibility: visible;
-    opacity: 1; */
     color: #0f99cf;
     transition: all 0.30s ease-in-out;
 }
@@ -80,22 +80,29 @@ h1, .container p {
 .element .icon {
     flex: 1;
     text-align: center;
+    font-size: 1em;
+}
+.element .icon.icon-right {
     visibility: hidden;
     opacity: 0;
-    font-size: 1em;
+    line-height: 75%;
+    padding-top: 5.5%;
+}
+.element .icon.icon-left {
+    line-height: 75%;
+    padding-top: 5.5%;
 }
 .element #togglePass{
     background-color: transparent;
     border: 0;
     outline: none;
     font-size: 1em;
-}
-.element #togglePass .icon{
-    visibility: visible;
-    opacity: 1;
     color: #747574;
+    padding: 0;
 }
-
+#togglePass{
+    
+}
 .valid {
     color: rgb(54, 190, 95, 1);
     visibility: visible !important;
@@ -111,14 +118,12 @@ h1, .container p {
 
 span.message-box {
     flex: 50%;
-    flex-grow: 1;
+    align-self: auto;
     text-align: right;
-    padding: 0 2em;
+    padding-right: 8.333333%;
     font-size: 0.75em;
-    line-height: 1em;
-    height: 1em;
-    margin-top: 0.1em;
-    float: left;
+    line-height: 10px;
+    height: 12.5px;
 }
 
 #submit {
@@ -172,13 +177,12 @@ span.message-box {
   }
 .radio input[type="radio"]:checked{
     background-color: #3197ee;
-    box-shadow: inset 0 0 0 5px #f4f4f4, 0 0 5px #3197ee;
+    box-shadow: inset 0 0 0 5px #f4f4f4;
 }
 .radio input[type="radio"]:focus{
-    /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
+    box-shadow: inset 0 0 0 5px #f4f4f4, 0 0 5px #3197ee;
     border-color: rgba(81, 203, 238, 1);
     outline: none;
-    /* border-color: #3197ee; */
 }
 .radio input[type="radio"]:disabled{
     box-shadow: inset 0 0 0 4px #f4f4f4;
