@@ -8,9 +8,16 @@ const password = document.getElementById('password');
 const togglePass = document.getElementById('togglePass');
 const submit = document.querySelector('#submit input[type="submit"]');
 const forms = document.getElementsByTagName('form');
+const degree = document.getElementsByName('degree');
+const major = document.getElementById('dropdown');
 
 // -----------------------------------
 // definitions
+const majors = [
+    ['Chemistry','Statisticss','Economics','Engineering','Finance'],
+    ['Accounting','Finance','MBA','Statistics ','Economics'],
+    ['Psychology','Biology','Statistics','Finance','Mathematics']
+]
 const validClass = '<i class="fas fa-check-circle"></i>';
 const invalidClass = '<i class="fas fa-times-circle"></i>';
 const patterns = {
@@ -94,7 +101,6 @@ let hasCustomError = function (field) {
 function validation (field, error, customError) {
     let iconRight = field.parentElement.querySelector('span.icon-right');
     let messageBox = field.parentElement.parentElement.querySelector('span.message-box');
-    // let iconRight = field.nextElementSibling;
     if (!error && !customError) {
         iconRight.innerHTML = validClass;
         iconRight.classList.remove('invalid');
@@ -125,19 +131,6 @@ document.addEventListener('blur', function (event) {
     }
 }, true);
 
-// name.addEventListener('blur', () => {
-//     validation (name, 'J S');
-// });
-// age.addEventListener('blur', () => {
-//     validation (age, 'J S');
-// });
-// email.addEventListener('blur', () => {
-//     validation (email, 'J S');
-// });
-// password.addEventListener('blur', () => {
-//     validation (password, 'J S');
-// });
-
 // -----------------------------------
 // toggling password visibility
 togglePass.addEventListener('mousedown', (event) => {
@@ -167,3 +160,9 @@ password.addEventListener('focus', () => togglePass.style.color = '#268BFE');
 password.addEventListener('focusout', () => togglePass.style.color = '#747574');
 
 // -----------------------------------
+// Select major
+for (let i = 0; i < degree.length; i++) {
+    degree[i].addEventListener('click', () => {
+        major.innerHTML = majors[i].map((val) => `<option value="bsc_${val}">${val}</option>`).join('');
+    });
+}

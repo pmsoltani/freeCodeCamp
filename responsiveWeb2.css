@@ -117,23 +117,7 @@ span.message-box {
     opacity: 1 !important;
     transition: all 0.30s ease-in-out;
 }
-#submit {
-    display: flex;
-    justify-content: center;
-}
-#submit input[type="submit"] {
-    flex: .15;
-    background-color: #268BFE;
-    height: var(--elem-height);
-    border-radius: var(--elem-radius);
-    font-size: 1em;
-    color: white;
-}
-#submit input[type="submit"]:focus {
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-    border: 1px solid rgba(81, 203, 238, 1);
-    outline: none;
-}
+
 
 #degree {
     display: flex;
@@ -183,4 +167,52 @@ span.message-box {
     box-shadow: inset 0 0 0 4px #f4f4f4;
     border-color: #b4b4b4;
     background: #b4b4b4;
+}
+
+.major {
+    display: flex;
+    width: var(--row-width);
+    margin: 10px auto;
+}
+.major label {
+    flex: 1;
+    height: var(--elem-height);
+    line-height: var(--elem-height);
+}
+.major .major-select {
+    border-radius: var(--elem-radius);
+    overflow:hidden;
+    flex: 3;
+    border: 1px solid #999;
+}
+.major #dropdown {
+    /* flex: 3; */
+    height: var(--elem-height);
+    outline: none;
+    font-size: 1em;
+    border: 0;
+    width: 100%;
+    /* border-radius: var(--elem-radius); */
+    appearance: none;
+}
+
+
+
+
+#submit {
+    display: flex;
+    justify-content: center;
+}
+#submit input[type="submit"] {
+    flex: .15;
+    background-color: #268BFE;
+    height: var(--elem-height);
+    border-radius: var(--elem-radius);
+    font-size: 1em;
+    color: white;
+}
+#submit input[type="submit"]:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+    outline: none;
 }
