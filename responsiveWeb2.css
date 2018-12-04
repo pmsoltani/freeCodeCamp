@@ -5,6 +5,7 @@
     --color2: #3197EE;
     --color3: #b4b4b4;
     --row-width: 70%;
+    --radio-size: 30px;
 }
 body {
     background-color: lightgray;
@@ -124,7 +125,7 @@ span.message-box {
     width: var(--row-width);
     margin: 10px auto;
 }
-.group-label {
+#degree .group-label {
     flex: 1;
     line-height: var(--elem-height);
 }
@@ -180,19 +181,18 @@ span.message-box {
 }
 .major .major-select {
     border-radius: var(--elem-radius);
-    overflow:hidden;
+    overflow: hidden;
     flex: 3;
     border: 1px solid #999;
 }
 .major #dropdown {
+    appearance: none;
     /* flex: 3; */
     height: var(--elem-height);
     outline: none;
     font-size: 1em;
     border: 0;
-    width: 100%;
-    /* border-radius: var(--elem-radius); */
-    appearance: none;
+    width: 100%;    
 }
 
 #countries {
@@ -200,30 +200,50 @@ span.message-box {
     width: var(--row-width);
     margin: 10px auto;
 }
-#countries .check-group-label {
+#countries .group-label {
     flex: 1;
     height: var(--elem-height);
     line-height: var(--elem-height);
 }
-.checkbox-group {
+#countries .checkbox-group {
     flex: 3;
     display: flex;
     flex-flow: column wrap;
 }
 .checkbox-group .checkbox {
-    height: var(--elem-height);
-    line-height: var(--elem-height);
+    display: flex;
 }
-.checkbox label:before {
-    border-radius: 3px;
+.checkbox-group .checkbox label {
+    margin: auto 0;
 }
 .checkbox-group .checkbox input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
+	background-color: transparent;
+	border: 1px solid #999;
+    height: var(--radio-size);
+    width: var(--radio-size);
+	border-radius: var(--elem-radius);
+    outline: none;
+    vertical-align: middle;
+    margin: 5px 1em 5px 0;
+    transition: all 500ms ease;
 }
-
+.checkbox-group .checkbox input[type="checkbox"]:checked {
+    background-color: #115a99;
+    box-shadow: inset 0 0 0 5px #f4f4f4;
+}
+.checkbox-group .checkbox input[type="checkbox"]:focus {
+    box-shadow: inset 0 0 0 5px #f4f4f4, 0 0 5px #115a99;
+    border-color: rgba(81, 203, 238, 1);
+    outline: none;
+}
+.checkbox-group .checkbox input[type="checkbox"]:disabled{
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+}
 
 #submit {
     display: flex;
@@ -236,6 +256,7 @@ span.message-box {
     border-radius: var(--elem-radius);
     font-size: 1em;
     color: white;
+    border: 0;
 }
 #submit input[type="submit"]:focus {
     box-shadow: 0 0 5px rgba(81, 203, 238, 1);
