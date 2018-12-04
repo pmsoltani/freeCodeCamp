@@ -184,15 +184,24 @@ span.message-box {
     overflow: hidden;
     flex: 3;
     border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+.major .major-select:focus-within {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+    outline: none;
 }
 .major #dropdown {
-    appearance: none;
-    /* flex: 3; */
+    /* -webkit-appearance: none; 
+    -moz-appearance: none;
+    appearance: none;  */
     height: var(--elem-height);
     outline: none;
     font-size: 1em;
-    border: 0;
-    width: 100%;    
+    border: none;
+    width: 80%;    
 }
 
 #countries {
@@ -244,6 +253,45 @@ span.message-box {
     border-color: #b4b4b4;
     background: #b4b4b4;
 }
+
+.comments-wrapper {
+    display: flex;
+    width: var(--row-width);
+    margin: 10px auto;
+}
+.comments-wrapper .group-label {
+    flex: 1;
+    padding-top: 2px;
+}
+.comments-wrapper .comments-element {
+    flex: 3;
+    border-radius: var(--radio-size);
+    border: 1px solid #999;
+    min-height: var(--elem-height);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.comments-wrapper .comments-element:focus-within {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1);
+    outline: none;
+}
+.comments-wrapper .comments-element #comments {
+    width: 80%;
+    font-size: 1em;
+    font-family: Roboto;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    resize: vertical;
+    min-height: var(--elem-height);
+}
+
+
+
+
 
 #submit {
     display: flex;

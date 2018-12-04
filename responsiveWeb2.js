@@ -163,6 +163,7 @@ password.addEventListener('focusout', () => togglePass.style.color = '#747574');
 // Select major
 for (let i = 0; i < degree.length; i++) {
     degree[i].addEventListener('click', () => {
+        major.removeAttribute('disabled');
         major.innerHTML = majors[i].map((val) => `<option value="bsc_${val}">${val}</option>`).join('');
     });
 }

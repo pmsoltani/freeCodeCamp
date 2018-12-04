@@ -92,7 +92,7 @@
             <div class="major">
                 <label for="dropdown">Major:</label>
                 <div class="major-select">
-                    <select name="" id="dropdown">
+                    <select name="" id="dropdown" disabled>
                     </select> 
                 </div>
             </div>
@@ -119,10 +119,12 @@
                 </div>
             </div>
 
-            <!-- 
-            <div>
-                <textarea id="comments" name="comments" placeholder="Additional Comments"></textarea>
-            </div> -->
+            <div class="comments-wrapper">
+                <label class="group-label">Comments:</label>
+                <div class="comments-element">
+                    <textarea id="comments" name="comments" placeholder="Additional Comments"></textarea>
+                </div>
+            </div>
 
             <div id="submit">
                 <input type="submit" value="Submit">
