@@ -1,138 +1,146 @@
 <!DOCTYPE html>
-<html>
 
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
     <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="responsiveWeb2.css" />
-    <link 
-        rel="stylesheet" 
-        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" 
-        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" 
-        crossorigin="anonymous"
-    >
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="responsiveWeb2.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700,700i" rel="stylesheet">
     <!-- https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-survey-form -->
 </head>
 
 <body>
     <h1 id="title">Application Form</h1>
+
+
     <div class="container">
         <p id="description">Build your future with us!</p>
-        <form action="POST" id="survey-form">
+
+
+        <form action="POST" id="survey-form" name="survey-form">
             <div id="register">
                 <ul>
                     <li>
-                        <label for="name" id="name-label">Full name: </label>
+                        <label for="name" id="name-label">Full name:</label>
+
                         <div class="element">
-                            <span class="icon icon-left"></span>
-                            <input type="text" name="name" id="name" placeholder="John Smith" required>
-                            <span class="icon icon-right"></span>
-                            <span class="message-box"></span>
+                            <span class="icon icon-left"></span> <input id="name" name="name" placeholder="John Smith" required="" type="text"> <span class="icon icon-right"></span> <span class="message-box"></span>
                         </div>
-                        
                     </li>
+
+
                     <li>
-                        <label for="age" id="number-label">Age: </label>
+                        <label for="age" id="number-label">Age:</label>
+
                         <div class="element">
-                            <span class="icon icon-left"></span>
-                            <input type="number" name="age" id="age" placeholder="26" min="22" max="40" required>
-                            <span class="icon icon-right"></span>
-                            <span class="message-box"></span>
+                            <span class="icon icon-left"></span> <input id="age" max="40" min="22" name="age" placeholder="26" required="" type="number"> <span class="icon icon-right"></span> <span class="message-box"></span>
                         </div>
-                       
                     </li>
+
+
                     <li>
-                        <label for="email" id="email-label">Email: </label>
+                        <label for="email" id="email-label">Email:</label>
+
                         <div class="element">
-                            <span class="icon icon-left"></span>
-                            <input type="email" name="email" id="email" placeholder="john@appleseed.com" required>
-                            <span class="icon icon-right"></span>
-                            <span class="message-box"></span>
+                            <span class="icon icon-left"></span> <input id="email" name="email" placeholder="john@appleseed.com" required="" type="email"> <span class="icon icon-right"></span> <span class="message-box"></span>
                         </div>
-                        
                     </li>
+
+
                     <li>
-                        <label for="pass" id="pass-label">Password: </label>
+                        <label for="pass" id="pass-label">Password:</label>
+
                         <div class="element">
-                            <span class="icon icon-left">
-                                <button class="inside" id="togglePass">
-                                    <i class="far fa-eye-slash"></i>
-                                </button>
-                            </span>
-                            <input type="password" name="password" id="password" placeholder="" required>
-                            <span class="icon icon-right"></span>
-                            <span class="message-box"></span>
+                            <span class="icon icon-left"><button class="inside" id="togglePass"><span class="icon icon-left"><span class="icon icon-left"><span class="icon icon-left"><i class="far fa-eye-slash"></i></span></span></span></button></span> <input id="password" name="password" placeholder="" required="" type="password"> <span class="icon icon-right"></span> <span class="message-box"></span>
                         </div>
-                        
                     </li>
                 </ul>
             </div>
 
+
             <div id="degree">
                 <label class="group-label">Degree:</label>
+
                 <div class="radio-group">
                     <div class="radio">
-                        <input type="radio" name="degree" id="bsc">
-                        <label for="bsc">B.Sc.</label>
+                        <input id="bsc" name="degree" required="" type="radio"> <label for="bsc">B.Sc.</label>
                     </div>
+
+
                     <div class="radio">
-                        <input type="radio" name="degree" id="msc">
-                        <label for="msc">M.Sc.</label>
+                        <input id="msc" name="degree" required="" type="radio"> <label for="msc">M.Sc.</label>
                     </div>
-                    <div class="radio">    
-                        <input type="radio" name="degree" id="phd">
-                        <label for="phd">Ph.D.</label>
+
+
+                    <div class="radio">
+                        <input id="phd" name="degree" required="" type="radio"> <label for="phd">Ph.D.</label>
                     </div>
+                    <span class="icon icon-right"></span> <span class="message-box"></span>
                 </div>
             </div>
+
 
             <div class="major">
                 <label for="dropdown">Major:</label>
-                <div class="major-select">
-                    <select name="" id="dropdown" disabled>
-                    </select> 
-                </div>
-            </div>
-            
-            <div id="countries">
-                <label class="group-label">Where:</label>
-                <div class="checkbox-group">
-                    <div class="checkbox">
-                        <input type="checkbox" name="france" id="france" value="france">
-                        <label for="france">France</label>
+
+                <div class="element">
+                    <span class="icon icon-left"></span>
+
+                    <div class="select-wrapper">
+                        <select disabled id="dropdown" name="" required="">
+                        </select>
                     </div>
-                    <div class="checkbox">
-                        <input type="checkbox" name="germany" id="germany" value="germany">
-                        <label for="germany">Germany</label>
-                    </div>
-                    <div class="checkbox">             
-                        <input type="checkbox" name="us" id="us" value="us">
-                        <label for="us">United States</label>
-                    </div>
-                    <div class="checkbox">               
-                        <input type="checkbox" name="australia" id="australia" value="australia">
-                        <label for="australia">Australia</label>
-                    </div>
+                    <span class="icon icon-right"></span> <span class="message-box"></span>
                 </div>
             </div>
 
-            <div class="comments-wrapper">
-                <label class="group-label">Comments:</label>
-                <div class="comments-element">
-                    <textarea id="comments" name="comments" placeholder="Additional Comments"></textarea>
+
+            <div id="countries">
+                <label class="group-label">Where:</label>
+
+                <div class="checkbox-group">
+                    <div class="checkbox">
+                        <input id="france" name="france" type="checkbox" value="france"> <label for="france">France</label>
+                    </div>
+
+
+                    <div class="checkbox">
+                        <input id="germany" name="germany" type="checkbox" value="germany"> <label for="germany">Germany</label>
+                    </div>
+
+
+                    <div class="checkbox">
+                        <input id="us" name="us" type="checkbox" value="us"> <label for="us">United States</label>
+                    </div>
+
+
+                    <div class="checkbox">
+                        <input id="australia" name="australia" type="checkbox" value="australia"> <label for="australia">Australia</label>
+                    </div>
+                    <span class="icon icon-right"></span> <span class="message-box"></span>
                 </div>
             </div>
+
+
+            <div class="comments-wrapper">
+                <label class="group-label">Comments:</label>
+
+                <div class="comments-element">
+                    <textarea id="comments" name="comments" placeholder="Additional Comments (optional)"></textarea>
+                </div>
+            </div>
+
 
             <div id="submit">
                 <input type="submit" value="Submit">
             </div>
-
         </form>
     </div>
-    <script type="text/javascript" src="responsiveWeb2.js"></script>
+    <script src="responsiveWeb2.js" type="text/javascript">
+    </script>
 </body>
-
 </html>

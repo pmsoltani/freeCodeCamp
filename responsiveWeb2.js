@@ -10,14 +10,16 @@ const submit = document.querySelector('#submit input[type="submit"]');
 const forms = document.getElementsByTagName('form');
 const degree = document.getElementsByName('degree');
 const major = document.getElementById('dropdown');
+const majorButton = document.getElementsByClassName('select-wrapper')[0];
+const countries = document.querySelectorAll('#countries input[type="checkbox"]');
 
 // -----------------------------------
 // definitions
 const majors = [
-    ['Chemistry','Statisticss','Economics','Engineering','Finance'],
-    ['Accounting','Finance','MBA','Statistics ','Economics'],
-    ['Psychology','Biology','Statistics','Finance','Mathematics']
-]
+    ['Select a program', 'Chemistry', 'Statisticss', 'Economics', 'Engineering', 'Finance'],
+    ['Select a program', 'Accounting', 'Finance', 'MBA', 'Statistics ', 'Economics'],
+    ['Select a program', 'Psychology', 'Biology', 'Statistics', 'Finance', 'Mathematics']
+];
 const validClass = '<i class="fas fa-check-circle"></i>';
 const invalidClass = '<i class="fas fa-times-circle"></i>';
 const patterns = {
@@ -37,13 +39,13 @@ const patterns = {
 
 // Form validation
 // Constraint Validation API
-let hasError = function (field) {
+let hasError = function(field) {
     // Don't validate submits, buttons, file & reset inputs, and disabled fields
     if (
-        field.disabled || 
-        field.type === 'file' || 
-        field.type === 'reset' || 
-        field.type === 'submit' || 
+        field.disabled ||
+        field.type === 'file' ||
+        field.type === 'reset' ||
+        field.type === 'submit' ||
         field.type === 'button'
     ) return;
 
@@ -89,7 +91,7 @@ let hasError = function (field) {
 };
 
 // Custom validation
-let hasCustomError = function (field) {
+let hasCustomError = function(field) {
     if (patterns.hasOwnProperty(field.name)) {
         if (!patterns[field.name].pattern.test(field.value)) {
             return patterns[field.name].message;
@@ -98,9 +100,21 @@ let hasCustomError = function (field) {
     return;
 };
 
-function validation (field, error, customError) {
-    let iconRight = field.parentElement.querySelector('span.icon-right');
+function validation(field, error, customError) {
+    let iconRight;
+    if (field.getAttribute('type') == 'checkbox') {
+        return;
+    } else if (
+        field.getAttribute('type') == 'radio' ||
+        field.nodeName == 'SELECT'
+    ) {
+        iconRight = field.parentElement.parentElement.parentElement.querySelector('span.icon-right');
+    } else {
+        iconRight = field.parentElement.querySelector('span.icon-right');
+    }
+
     let messageBox = field.parentElement.parentElement.querySelector('span.message-box');
+
     if (!error && !customError) {
         iconRight.innerHTML = validClass;
         iconRight.classList.remove('invalid');
@@ -123,13 +137,47 @@ function validation (field, error, customError) {
 //     forms[i].setAttribute('novalidate', true);
 // }
 
-document.addEventListener('blur', function (event) {
-    if (event.target.nodeName == 'INPUT') {
+document.addEventListener('blur', (event) => {
+    if (event.target.nodeName == 'INPUT' || event.target.nodeName == 'SELECT') {
         let error = hasError(event.target);
         let customError = hasCustomError(event.target);
-        validation (event.target, error, customError);
+        validation(event.target, error, customError);
     }
 }, true);
+
+countries[countries.length - 1].addEventListener('blur', () => {
+    let checked = false;
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i].checked) checked = true;
+    }
+    let messageBox = countries[0].parentElement.parentElement.querySelector('span.message-box');
+    if (checked) {
+        messageBox.classList.remove('invalid');
+        messageBox.classList.add('valid');
+        messageBox.textContent = '';
+    } else {
+        messageBox.classList.remove('valid');
+        messageBox.classList.add('invalid');
+        messageBox.textContent = 'Select at least 1 country';
+    }
+});
+
+submit.addEventListener('focus', () => {
+    let checked = false;
+    for (let i = 0; i < countries.length; i++) {
+        if (countries[i].checked) checked = true;
+    }
+    let messageBox = countries[0].parentElement.parentElement.querySelector('span.message-box');
+    if (checked) {
+        messageBox.classList.remove('invalid');
+        messageBox.classList.add('valid');
+        messageBox.textContent = '';
+    } else {
+        messageBox.classList.remove('valid');
+        messageBox.classList.add('invalid');
+        messageBox.textContent = 'Select at least 1 country';
+    }
+});
 
 // -----------------------------------
 // toggling password visibility
@@ -138,7 +186,7 @@ togglePass.addEventListener('mousedown', (event) => {
     password.focus();
     password.type = 'text';
     togglePass.innerHTML = '<i class="far fa-eye fa-flip-horizontal">';
-    
+
     togglePass.addEventListener('mouseleave', () => {
         password.type = 'password';
         togglePass.innerHTML = '<i class="far fa-eye-slash">';
@@ -155,6 +203,7 @@ togglePass.addEventListener('click', (event) => {
 });
 
 togglePass.addEventListener('focus', () => password.focus());
+
 // custom styles for the 'show password' button (eye)
 password.addEventListener('focus', () => togglePass.style.color = '#268BFE');
 password.addEventListener('focusout', () => togglePass.style.color = '#747574');
@@ -163,7 +212,16 @@ password.addEventListener('focusout', () => togglePass.style.color = '#747574');
 // Select major
 for (let i = 0; i < degree.length; i++) {
     degree[i].addEventListener('click', () => {
+        majorButton.style.color = '#000';
         major.removeAttribute('disabled');
-        major.innerHTML = majors[i].map((val) => `<option value="bsc_${val}">${val}</option>`).join('');
+        major.innerHTML = majors[i]
+            .map((val, index) => {
+                if (index == 0) {
+                    return `<option value="">${val}</option>`;
+                } else {
+                    return `<option value="bsc_${val}">${val}</option>`;
+                }
+            })
+            .join('');
     });
 }
